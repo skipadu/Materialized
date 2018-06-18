@@ -8,12 +8,17 @@ import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
@@ -34,10 +39,12 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     private static final String TAG = ArticleListActivity.class.toString();
 
-    @BindView(R.id.toolbar)
+    @BindView(R.id.appBarLayout)
+    AppBarLayout mAppBarLayout;
+    @BindView(R.id.collapsing_toolbar_main)
+    CollapsingToolbarLayout mCollapsingToolbar;
+    @BindView(R.id.toolbar_main)
     Toolbar mToolbar;
-    @BindView(R.id.toolbar_container)
-    View mToolbarContainerView;
 
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout mSwipeRefreshLayout;
@@ -50,7 +57,29 @@ public class ArticleListActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_article_list);
         ButterKnife.bind(this);
 
+
+        setSupportActionBar(mToolbar);
+        mCollapsingToolbar.setTitle(getString(R.string.app_name));
+
+        mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (verticalOffset == 0) {
+                    Log.d(TAG, "Vertical offset is zero");
+                } else {
+                    Log.d(TAG, "Vertical offset is: " + verticalOffset);
+                }
+            }
+        });
+
         getLoaderManager().initLoader(0, null, this);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.d(TAG, "Refresh items in recyclerview");
+                refresh();
+            }
+        });
 
         if (savedInstanceState == null) {
             refresh();
@@ -66,6 +95,22 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onStart();
         registerReceiver(mRefreshingReceiver,
                 new IntentFilter(UpdaterService.BROADCAST_ACTION_STATE_CHANGE));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.refresh) {
+            mSwipeRefreshLayout.setRefreshing(true);
+            refresh();
+        }
+        return true;
     }
 
     @Override
@@ -110,5 +155,5 @@ public class ArticleListActivity extends AppCompatActivity implements
     public void onLoaderReset(Loader<Cursor> loader) {
         mRecyclerView.setAdapter(null);
     }
-    
+
 }
