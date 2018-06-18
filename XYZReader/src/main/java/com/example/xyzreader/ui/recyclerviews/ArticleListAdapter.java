@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.ItemsContract;
-import com.example.xyzreader.ui.ImageLoaderHelper;
+import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -90,10 +90,11 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListViewHold
                             + "<br/>" + " by "
                             + mCursor.getString(ArticleLoader.Query.AUTHOR)));
         }
-        holder.thumbnailView.setImageUrl(
-                mCursor.getString(ArticleLoader.Query.THUMB_URL),
-                ImageLoaderHelper.getInstance(mContext).getImageLoader());
-        holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+
+        String thumbUrl = mCursor.getString(ArticleLoader.Query.THUMB_URL);
+        Picasso.get()
+                .load(thumbUrl)
+                .into(holder.thumbnailView);
     }
 
     @Override
