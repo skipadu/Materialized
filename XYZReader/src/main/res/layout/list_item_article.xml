@@ -33,7 +33,7 @@
             android:paddingRight="16dp"
             android:paddingTop="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/titleText"
+            android:textColor="@color/darkGray"
             tools:text="Title" />
 
         <TextView
@@ -47,7 +47,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@color/subtitleText"
+            android:textColor="@color/lightGray"
             tools:text="Subtitle" />
     </LinearLayout>
 
