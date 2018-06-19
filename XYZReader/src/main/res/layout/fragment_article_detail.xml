@@ -102,6 +102,6 @@
         android:elevation="@dimen/fab_elevation"
         android:src="@drawable/ic_share"
         android:theme="@style/ShareFab"
-        app:rippleColor="@color/theme_primary_dark"></android.support.design.widget.FloatingActionButton>
+        app:rippleColor="@color/ripple" />
 
 </com.example.xyzreader.ui.DrawInsetsFrameLayout>
