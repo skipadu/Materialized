@@ -16,13 +16,10 @@
             android:background="@color/theme_primary"
             android:elevation="4dp"
             app:collapsedTitleTextAppearance="@style/CollapsedTitle"
-
             app:expandedTitleGravity="top"
             app:expandedTitleMarginEnd="64dp"
-
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleTextAppearance="@style/ExpandedTitle"
-
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <ImageView
