@@ -7,7 +7,17 @@
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_press_translation_z">12dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="bar_elevation">4dp</dimen>
+    <dimen name="bar_full_height">112dp</dimen>
+    <dimen name="logo_height">56dp</dimen>
+    <dimen name="logo_margin_top">44dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
+    <dimen name="bar_collapsed_height">56dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="padding_big">16dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="item_thumb_height">100dp</dimen>
 
 </resources>
