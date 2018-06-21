@@ -13,7 +13,6 @@
             android:id="@+id/collapsing_toolbar_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/theme_primary"
             android:elevation="@dimen/bar_elevation"
             app:collapsedTitleTextAppearance="@style/CollapsedTitle"
             app:expandedTitleGravity="top"
