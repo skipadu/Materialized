@@ -19,5 +19,6 @@
     <dimen name="padding_big">16dp</dimen>
     <dimen name="padding_small">4dp</dimen>
     <dimen name="item_thumb_height">100dp</dimen>
+    <dimen name="bg_protection_height">112dp</dimen>
 
 </resources>
