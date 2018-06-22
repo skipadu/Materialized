@@ -23,7 +23,7 @@ public class ArticleLoader extends CursorLoader {
 
     public interface Query {
         String[] PROJECTION = {
-                ItemsContract.Items._ID,
+                ItemsContract.Items.ID,
                 ItemsContract.Items.TITLE,
                 ItemsContract.Items.PUBLISHED_DATE,
                 ItemsContract.Items.AUTHOR,

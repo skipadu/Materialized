@@ -18,7 +18,7 @@ public class ArticleListViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.article_subtitle)
     public TextView subtitleView;
 
-    public ArticleListViewHolder(View v) {
+    ArticleListViewHolder(View v) {
         super(v);
         ButterKnife.bind(this, v);
     }

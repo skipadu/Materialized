@@ -10,14 +10,14 @@ public class ItemsDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "xyzreader.db";
     private static final int DATABASE_VERSION = 2;
 
-    public ItemsDatabase(Context context) {
+    ItemsDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + Tables.ITEMS + " ("
-                + ItemsContract.ItemsColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ItemsContract.ItemsColumns.ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + ItemsContract.ItemsColumns.SERVER_ID + " TEXT,"
                 + ItemsContract.ItemsColumns.TITLE + " TEXT NOT NULL,"
                 + ItemsContract.ItemsColumns.AUTHOR + " TEXT NOT NULL,"

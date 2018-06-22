@@ -3,6 +3,7 @@ package com.example.xyzreader.ui.recyclerviews;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -30,7 +31,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListViewHold
     // Use default locale format
     private SimpleDateFormat outputFormat = new SimpleDateFormat();
     // Most time functions can only handle 1902 - 2037
-    private GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
+    private final GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
 
 
     public ArticleListAdapter(Cursor cursor, Context context) {
@@ -45,7 +46,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListViewHold
     }
 
     @Override
-    public ArticleListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ArticleListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.list_item_article, parent, false);
 
         final ArticleListViewHolder vh = new ArticleListViewHolder(v);
@@ -71,7 +72,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListViewHold
     }
 
     @Override
-    public void onBindViewHolder(ArticleListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ArticleListViewHolder holder, int position) {
         mCursor.moveToPosition(position);
         holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
         Date publishedDate = parsePublishedDate();

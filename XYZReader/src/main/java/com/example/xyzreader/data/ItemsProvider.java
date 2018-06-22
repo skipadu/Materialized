@@ -111,7 +111,7 @@ public class ItemsProvider extends ContentProvider {
 			}
 			case ITEMS__ID: {
 				final String _id = paths.get(1);
-				return builder.table(Tables.ITEMS).where(ItemsContract.Items._ID + "=?", _id);
+				return builder.table(Tables.ITEMS).where(ItemsContract.Items.ID + "=?", _id);
 			}
 			default: {
 				throw new UnsupportedOperationException("Unknown uri: " + uri);

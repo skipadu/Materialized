@@ -4,11 +4,11 @@ import android.net.Uri;
 
 public class ItemsContract {
 	public static final String CONTENT_AUTHORITY = "com.example.xyzreader";
-	public static final Uri BASE_URI = Uri.parse("content://com.example.xyzreader");
+	static final Uri BASE_URI = Uri.parse("content://com.example.xyzreader");
 
 	interface ItemsColumns {
 		/** Type: INTEGER PRIMARY KEY AUTOINCREMENT */
-		String _ID = "_id";
+		String ID = "_id";
 		/** Type: TEXT */
 		String SERVER_ID = "server_id";
 		/** Type: TEXT NOT NULL */
@@ -39,14 +39,18 @@ public class ItemsContract {
 		}
 
 		/** Matches: /items/[_id]/ */
-		public static Uri buildItemUri(long _id) {
-			return BASE_URI.buildUpon().appendPath("items").appendPath(Long.toString(_id)).build();
+		public static Uri buildItemUri(long id) {
+			return BASE_URI.buildUpon().appendPath("items").appendPath(Long.toString(id)).build();
 		}
 
         /** Read item ID item detail URI. */
         public static long getItemId(Uri itemUri) {
             return Long.parseLong(itemUri.getPathSegments().get(1));
         }
+
+		private Items() {
+        	// Hide constructor
+		}
 	}
 
 	private ItemsContract() {
