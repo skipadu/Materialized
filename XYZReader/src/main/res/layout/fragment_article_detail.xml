@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/detail_card_top_margin"
-                android:background="#fff"
+                android:background="@color/white"
                 android:elevation="@dimen/bar_elevation"
                 android:maxWidth="@dimen/detail_card_max_width"
                 android:orientation="vertical">
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginBottom="@dimen/detail_metabar_vert_padding"
-                    android:background="#333"
+                    android:background="@color/darkGray"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/detail_metabar_vert_padding"
                     android:paddingLeft="@dimen/detail_inner_horiz_margin"
